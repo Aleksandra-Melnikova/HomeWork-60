@@ -32,26 +32,9 @@ const Chat = () => {
     // window.scrollTo(0, document.body.scrollHeight);
 
   },[])
-console.log(messages);
-  // const getAllMessages = async () => {
-  //   try {
-  //     // loaderOnOrOff("block");
-  //     messages = await fetchRequest(baseUrl);
-  //     for (let i = 0; i < messages.length; i++) {
-  //       let dateFormat = new Date(`${messages[i].datetime}`);
-  //       dateFormat.toString();
-  //
-  //       if (messagesAllBlock !== null) {
-  //         messagesAllBlock.appendChild(divMessage);
-  //       }
-  //       window.scrollTo(0, document.body.scrollHeight);
-  //     }
-  //     // loaderOnOrOff("none");
-  //   } catch (error) {
-  //     alert(error);
-  //     // loaderOnOrOff("none");
-  //   }
-  // };
+
+
+
 
   return (
     <div>
