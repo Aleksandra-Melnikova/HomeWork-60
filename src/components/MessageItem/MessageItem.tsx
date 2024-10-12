@@ -1,16 +1,8 @@
 import React from "react";
+import { IMessage } from "../../types";
 
-interface IProps {
-  _id: string;
-  number: number;
-  author: string;
-  datetime: string;
-  message: string;
-}
-
-const MessageItem: React.FC<IProps> = ({
+const MessageItem: React.FC<IMessage> = ({
   _id,
-  number,
   author,
   datetime,
   message,
@@ -18,9 +10,8 @@ const MessageItem: React.FC<IProps> = ({
   return (
     <div id={_id} className="border bg-light rounded mb-3 ps-5 pt-3 pb-3 pe-3">
       <div className="border-bottom mb-2">
-        Message № {number}{" "}
         <span>
-          from: <span className="text-primary">${author}</span>
+          From: <span className="text-primary">{author}</span>
         </span>
         <div>
           <strong> Date: </strong>
@@ -28,7 +19,8 @@ const MessageItem: React.FC<IProps> = ({
         </div>
       </div>
       <div className="mt-2 text-break">
-        <strong>Text of message: </strong>{message}
+        <strong>Text of message: </strong>
+        {message}
       </div>
     </div>
   );
