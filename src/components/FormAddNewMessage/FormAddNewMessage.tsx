@@ -50,11 +50,10 @@ const FormAddNewMessage = () => {
         data.set("message", inputMessage.message);
         data.set("author", inputMessage.name);
 
-        const response = await fetch(url, {
+        await fetch(url, {
           method: "post",
           body: data,
         });
-        console.log(response);
       }
     };
     postNewMessage().catch((e) => console.error(e));
