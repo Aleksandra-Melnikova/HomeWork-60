@@ -2,6 +2,7 @@ import FormAddNewMessage from "../../components/FormAddNewMessage/FormAddNewMess
 import MessageItem from "../../components/MessageItem/MessageItem.tsx";
 import { useCallback, useEffect, useState } from "react";
 import { IMessage } from "../../types";
+import Container from "react-bootstrap/Container";
 
 const Chat = () => {
   const url = "http://146.185.154.90:8000/messages";
@@ -66,31 +67,25 @@ const Chat = () => {
 
   return (
     <div>
-      <div id="root">
-        <header className="header container row ">
-          <h1 className="p-4 fs-2 text-center ">Chat</h1>
-        </header>
-        <div
-          id="container"
-          style={{ position: "relative" }}
-          className="container row justify-content-center"
-        >
-          <div id="messagesAll">
-            {messages.map((message) => (
-              <MessageItem
-                key={message._id}
-                message={message.message}
-                _id={message._id}
-                datetime={String(new Date(message.datetime))}
-                author={message.author}
-              />
-            ))}
-          </div>
-          <div id="formBlock" className="mt-3 mb-2 pt-1">
-            <FormAddNewMessage />
-          </div>
+      <Container>
+        <h1 className="p-4 fs-2 text-center ">Chat</h1>
+      </Container>
+      <Container style={{ position: "relative" }}>
+        <div id="messagesAll">
+          {messages.map((message) => (
+            <MessageItem
+              key={message._id}
+              message={message.message}
+              _id={message._id}
+              datetime={String(new Date(message.datetime))}
+              author={message.author}
+            />
+          ))}
         </div>
-      </div>
+        <div id="formBlock" className="mt-3 mb-2 pt-1">
+          <FormAddNewMessage />
+        </div>
+      </Container>
     </div>
   );
 };

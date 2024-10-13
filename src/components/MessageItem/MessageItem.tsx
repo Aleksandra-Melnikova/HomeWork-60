@@ -1,5 +1,6 @@
 import React from "react";
 import { IMessage } from "../../types";
+import Row from "react-bootstrap/Row";
 
 const MessageItem: React.FC<IMessage> = ({
   _id,
@@ -8,8 +9,8 @@ const MessageItem: React.FC<IMessage> = ({
   message,
 }) => {
   return (
-    <div id={_id} className="border bg-light rounded mb-3 ps-5 pt-3 pb-3 pe-3">
-      <div className="border-bottom mb-2">
+    <Row id={_id} className="border bg-light rounded mb-3 p-3 ">
+      <Row className="mb-2 pb-1 border-bottom">
         <span>
           From: <span className="text-primary">{author}</span>
         </span>
@@ -17,12 +18,12 @@ const MessageItem: React.FC<IMessage> = ({
           <strong> Date: </strong>
           <span>{datetime}</span>
         </div>
-      </div>
-      <div className="mt-2 text-break">
+      </Row>
+      <Row className="pb-1">
         <strong>Text of message: </strong>
-        {message}
-      </div>
-    </div>
+        <p className="mt-1">{message}</p>
+      </Row>
+    </Row>
   );
 };
 

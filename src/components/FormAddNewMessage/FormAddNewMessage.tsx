@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IInputMessage } from "../../types";
-// interface Props {
-//   onAddFilm: (film: IFilm) => void;
-// }
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const FormAddNewMessage = () => {
   const url = "http://146.185.154.90:8000/messages";
@@ -64,41 +63,33 @@ const FormAddNewMessage = () => {
   }, [buttonClicked]);
 
   return (
-    <div>
-      <form
-        onSubmit={submitForm}
-        className="border border-2 rounded row g-3 ps-5 bg-light justify-content-center"
-      >
-        <div className="mb-1">
-          <label htmlFor="exampleFormControlInput1" className="form-label">
-            Your name
-          </label>
-          <input
+    <div className="mb-3">
+      <Form onSubmit={submitForm}>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form.Label column={"lg"}> Your name</Form.Label>
+          <Form.Control
             name="name"
             type="text"
-            className="form-control"
-            id="exampleFormControlInput1"
             placeholder="Enter your name"
             value={inputMessage.name}
             onChange={changeInputMessage}
           />
-        </div>
-        <div className="mb-1">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            Your message:
-          </label>
-          <textarea
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label column={"lg"}>Your message:</Form.Label>
+          <Form.Control
             name="message"
-            className="form-control"
-            id="exampleFormControlTextarea1"
+            type="text"
             value={inputMessage.message}
             onChange={changeInputMessage}
-          ></textarea>
-        </div>
-        <button className="btn btn-primary mb-2 col-2 " type="submit">
+            as="textarea"
+            rows={3}
+          />
+        </Form.Group>
+        <Button className="ps-4 pe-4" variant="primary" type="submit">
           Send
-        </button>
-      </form>
+        </Button>{" "}
+      </Form>
     </div>
   );
 };
